@@ -4,27 +4,20 @@
 class ContentPiecesExtension < Radiant::Extension
   version "1.0"
   description "Add content to the website through the admin section"
-  url "http://pivotib.com/ib_point"
-  
-  @content_piece = ContentPiece.instance
-  #@content_piece.pieces = Array.new if @content_piece.pieces.empty?
-  @content_piece.pieces << 'Files'
+  url "http://github.com/pivotib/radiant-content-pieces-extension/tree/master"
   
   define_routes do |map|
-    map.with_options(:controller => 'admin/content_piece') do |content_piece|
-      content_piece.content_piece_index 'admin/content_pieces', :action => 'index'
+    map.namespace :admin do |admin|
+      admin.resources :content_pieces
     end
-    
-    # map.resources
-    # map.connect 'admin/content_pieces/:action', :controller => 'admin/content_pieces_controller'
   end
   
   def activate
-     admin.tabs.add "Content Pieces", "/admin/content_pieces", :after => "Layouts", :visibility => [:all]
+    admin.tabs.add "Content Pieces", "/admin/content_pieces", :after => "Layouts", :visibility => [:all]
   end
   
   def deactivate
-     admin.tabs.remove "Content Pieces"
+    admin.tabs.remove "Content Pieces"
   end
   
 end
