@@ -3,6 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe ContentPiece do
   before do
     @content_piece = ContentPiece.instance
+    @content_piece.clear
   end
   
   it "should be a singleton" do

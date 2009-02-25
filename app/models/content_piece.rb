@@ -15,6 +15,10 @@ class ContentPiece
     pieces.size
   end
   
+  def clear
+    @pieces = []
+  end
+  
   private
     def pieces
       @pieces ||= []
