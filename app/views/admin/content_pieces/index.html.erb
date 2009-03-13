@@ -1,0 +1,9 @@
+<%- unless @content_piece.blank? -%>
+<ul>
+<%- @content_piece.each do |piece| -%>
+  <li><%= link_to piece[:name], eval(piece[:path_method]) %></li>
+<%- end -%>
+</ul>
+<%- else -%>
+<p>There are no content pieces currently installed.</p>
+<%- end -%>

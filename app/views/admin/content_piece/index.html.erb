@@ -1,5 +1,0 @@
-<ul>
-<%- @content_piece.each do |piece| -%>
-  <li><%= link_to piece[:name], eval(piece[:path_method]) %></li>
-<%- end -%>
-</ul>
