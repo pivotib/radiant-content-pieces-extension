@@ -1,6 +1,6 @@
-<%- unless @content_piece.blank? -%>
+<%- unless @content_pieces.blank? -%>
 <ul>
-<%- @content_piece.each do |piece| -%>
+<%- @content_pieces.each do |piece| -%>
   <li><%= link_to piece[:name], eval(piece[:path_method]) %></li>
 <%- end -%>
 </ul>
